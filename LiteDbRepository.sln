@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteDbRepo", "LiteDbRepo\LiteDbRepo.csproj", "{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteDbEntity.Tests", "LiteDbEntity.Tests\LiteDbEntity.Tests.csproj", "{B5500D98-4DB9-4D46-8B83-8DDBA33D9290}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5500D98-4DB9-4D46-8B83-8DDBA33D9290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5500D98-4DB9-4D46-8B83-8DDBA33D9290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5500D98-4DB9-4D46-8B83-8DDBA33D9290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5500D98-4DB9-4D46-8B83-8DDBA33D9290}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
