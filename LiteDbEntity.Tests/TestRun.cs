@@ -28,7 +28,7 @@ namespace LiteDbEntity.Tests
             var customer = new Customer {CreatedAt = DateTime.Now,user = user};
             await repo.Add(customer);
 
-            // getall
+            // get all
             var items = repo.GetAll<Customer>();
             items.Count().ShouldBe(1);
             items.First().Id.ShouldBe(customer.Id);
