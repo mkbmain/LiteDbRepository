@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using DbLiteCore.Implementation;
 using LiteDbEntity.Tests.Data;
 using LiteDbEntity.Tests.Data.Entities;
-using RepositoryBase;
 using Shouldly;
 using Xunit;
 
@@ -20,12 +20,12 @@ namespace LiteDbEntity.Tests
             LiteDbEntityMapping.Setup();
             var db = Guid.NewGuid();
             var container = ContainerFactory.GetContainer(db.ToString());
-            var repo = container.Resolve<IRepositoryBase<MainDb>>();
+            var repo = container.Resolve<LiteDbRepo<MainDb>>();
             var user = new User {LogInName = "mike"};
 
             // add
             await repo.Add(user);
-            var customer = new Customer {CreatedAt = DateTime.Now,user = user};
+            var customer = new Customer {CreatedAt = DateTime.Now, user = user};
             await repo.Add(customer);
 
             // get all
@@ -38,14 +38,15 @@ namespace LiteDbEntity.Tests
             includes.Count().ShouldBe(1);
             includes.First().user.LogInName.ShouldBe("mike");
 
+
             // update tested
+            var user1 = await repo.GetFirst<User>(f => f.Id == user.Id);
+            
+            user1.LogInName = "gg";
+            await repo.Update(user);
+            includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
             includes.First().user.LogInName = "gg";
             includes.Count().ShouldBe(1);
-            await repo.Update(includes.First().user);
-
-            includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
-            includes.Count().ShouldBe(1);
-            includes.First().user.LogInName.ShouldBe("gg");
             
             // delete 
             await repo.Delete(includes.First());

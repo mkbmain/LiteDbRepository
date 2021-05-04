@@ -4,12 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using LiteDB;
-using RepositoryBase;
 
 
 namespace DbLiteCore.Implementation
 {
-    public class LiteDbRepo<EntityBaseModel> : IRepositoryBase<EntityBaseModel> where EntityBaseModel : LiteDbEntity
+    public class LiteDbRepo<EntityBaseModel>  where EntityBaseModel : LiteDbEntity
     {
         // made the IBaseRepo totaly async as this is 2020 but litedb does not seem to support it so decided to just waste the 
         // state overhead added by the compiler but keep it standardized the kb's lost is minimal in 2020
@@ -42,7 +41,7 @@ namespace DbLiteCore.Implementation
 
         public async Task Update<T>(T entity) where T : EntityBaseModel
         {
-            OpenConnectionAndExecute(f => GetCollection<T>(f).Update(entity));
+            OpenConnectionAndExecute(f => f.GetCollection<T>().Update(entity));
         }
 
         public IQueryable<T> GetAll<T>() where T : EntityBaseModel

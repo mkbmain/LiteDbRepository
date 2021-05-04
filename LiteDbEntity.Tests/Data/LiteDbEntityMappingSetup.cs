@@ -1,7 +1,7 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using LiteDbEntity.Tests.Data.Entities;
-using Mkb.Util;
 
 namespace LiteDbEntity.Tests.Data
 {
@@ -16,7 +16,7 @@ namespace LiteDbEntity.Tests.Data
             }
 
             Done = true;
-            foreach (var allType in Assembly.GetAssembly(typeof(Customer)).GetAllTypes<DbLiteCore.LiteDbEntity>(false, false))
+            foreach (var allType in Assembly.GetAssembly(typeof(Customer)).GetTypes().Where(f=> f is DbLiteCore.LiteDbEntity))
             {
                 var efe = (DbLiteCore.LiteDbEntity) Activator.CreateInstance(allType);
                 efe.Mappings();
