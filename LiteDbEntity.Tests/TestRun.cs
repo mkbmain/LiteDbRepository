@@ -24,9 +24,9 @@ namespace LiteDbEntity.Tests
             var user = new User {LogInName = "mike"};
 
             // add
-            await repo.Add(user);
+            repo.Add(user);
             var customer = new Customer {CreatedAt = DateTime.Now, user = user};
-            await repo.Add(customer);
+            repo.Add(customer);
 
             // get all
             var items = repo.GetAll<Customer>();
@@ -40,16 +40,16 @@ namespace LiteDbEntity.Tests
 
 
             // update tested
-            var user1 = await repo.GetFirst<User>(f => f.Id == user.Id);
-            
+            var user1 = repo.GetFirst<User>(f => f.Id == user.Id);
+
             user1.LogInName = "gg";
-            await repo.Update(user);
+            repo.Update(user);
             includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
             includes.First().user.LogInName = "gg";
             includes.Count().ShouldBe(1);
-            
+
             // delete 
-            await repo.Delete(includes.First());
+            repo.Delete(includes.First());
             includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
             includes.Count().ShouldBe(0);
         }
