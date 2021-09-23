@@ -34,7 +34,7 @@ namespace LiteDbEntity.Tests
             items.First().Id.ShouldBe(customer.Id);
 
             // get all with includes
-            var includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
+            var includes = repo.GetAll<Customer, Customer>(f => true, f => f, null, null, f => f.user).ToArray();
             includes.Count().ShouldBe(1);
             includes.First().user.LogInName.ShouldBe("mike");
 
@@ -44,13 +44,13 @@ namespace LiteDbEntity.Tests
 
             user1.LogInName = "gg";
             repo.Update(user);
-            includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
+            includes = repo.GetAll<Customer, Customer>(f => true, f => f, null, null, f => f.user).ToArray();
             includes.First().user.LogInName = "gg";
             includes.Count().ShouldBe(1);
 
             // delete 
             repo.Delete(includes.First());
-            includes = repo.GetAll<Customer, Customer>(f => true, f => f, true, null, null, f => f.user).ToArray();
+            includes = repo.GetAll<Customer, Customer>(f => true, f => f, null, null, f => f.user).ToArray();
             includes.Count().ShouldBe(0);
         }
     }

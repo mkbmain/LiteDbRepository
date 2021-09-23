@@ -51,16 +51,9 @@ namespace DbLiteCore.Implementation
         {
             return GetAll(query, f => f);
         }
-
-        public IList<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query, Expression<Func<T, Tout>> projection,
-            int? skip = null, int? take = null)
-            where T : EntityBaseModel
-        {
-            return GetAll(query, projection, true);
-        }
-
+        
         public IList<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query,
-            Expression<Func<T, Tout>> projection, bool tracking,
+            Expression<Func<T, Tout>> projection,
             int? skip = null,
             int? take = null,
             params Expression<Func<T, object>>[] includes)
