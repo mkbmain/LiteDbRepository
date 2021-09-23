@@ -42,24 +42,24 @@ namespace DbLiteCore.Implementation
             OpenConnectionAndExecute(f => f.GetCollection<T>().Update(entity));
         }
 
-        public IEnumerable<T> GetAll<T>() where T : EntityBaseModel
+        public IList<T> GetAll<T>() where T : EntityBaseModel
         {
             return GetAll<T>(f => true);
         }
 
-        public IEnumerable<T> GetAll<T>(Expression<Func<T, bool>> query) where T : EntityBaseModel
+        public IList<T> GetAll<T>(Expression<Func<T, bool>> query) where T : EntityBaseModel
         {
             return GetAll(query, f => f);
         }
 
-        public IEnumerable<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query, Expression<Func<T, Tout>> projection,
+        public IList<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query, Expression<Func<T, Tout>> projection,
             int? skip = null, int? take = null)
             where T : EntityBaseModel
         {
             return GetAll(query, projection, true);
         }
 
-        public IEnumerable<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query,
+        public IList<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query,
             Expression<Func<T, Tout>> projection, bool tracking,
             int? skip = null,
             int? take = null,
