@@ -1,6 +1,6 @@
 namespace LiteDbEntity.Tests.Data.Entities
 {
-    public class MainDb : DbLiteCore.LiteDbEntity
+    public class MainDb : Mkb.LiteDbRepo.LiteDbEntity
     {
         
     }

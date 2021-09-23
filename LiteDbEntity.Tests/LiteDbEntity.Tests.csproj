@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LiteDbRepo\LiteDbRepo.csproj" />
+      <ProjectReference Include="..\Mkb.LiteDbRepo\Mkb.LiteDbRepo.csproj" />
     </ItemGroup>
 
 </Project>

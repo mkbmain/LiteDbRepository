@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using LiteDB;
 
-namespace DbLiteCore.Implementation
+namespace Mkb.LiteDbRepo.Implementation
 {
     public class LiteDbRepo<EntityBaseModel> where EntityBaseModel : LiteDbEntity
     {

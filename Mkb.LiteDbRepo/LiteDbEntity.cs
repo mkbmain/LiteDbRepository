@@ -1,6 +1,6 @@
 using System;
 
-namespace DbLiteCore
+namespace Mkb.LiteDbRepo
 {
     public abstract class LiteDbEntity
     {

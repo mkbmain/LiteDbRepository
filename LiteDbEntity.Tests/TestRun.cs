@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
-using DbLiteCore.Implementation;
 using LiteDbEntity.Tests.Data;
 using LiteDbEntity.Tests.Data.Entities;
+using Mkb.LiteDbRepo.Implementation;
 using Shouldly;
 using Xunit;
 

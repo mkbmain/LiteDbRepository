@@ -1,6 +1,6 @@
 using Autofac;
-using DbLiteCore.Implementation;
 using LiteDbEntity.Tests.Data.Entities;
+using Mkb.LiteDbRepo.Implementation;
 
 namespace LiteDbEntity.Tests
 {

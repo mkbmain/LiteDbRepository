@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteDbRepo", "LiteDbRepo\LiteDbRepo.csproj", "{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mkb.LiteDbRepo", "Mkb.LiteDbRepo\Mkb.LiteDbRepo.csproj", "{D2C0D421-70A0-4503-BA40-B2E0E7FC50C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteDbEntity.Tests", "LiteDbEntity.Tests\LiteDbEntity.Tests.csproj", "{B5500D98-4DB9-4D46-8B83-8DDBA33D9290}"
 EndProject

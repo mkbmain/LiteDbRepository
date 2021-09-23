@@ -16,9 +16,9 @@ namespace LiteDbEntity.Tests.Data
             }
 
             Done = true;
-            foreach (var allType in Assembly.GetAssembly(typeof(Customer)).GetTypes().Where(f=> f is DbLiteCore.LiteDbEntity))
+            foreach (var allType in Assembly.GetAssembly(typeof(Customer)).GetTypes().Where(f=> f is Mkb.LiteDbRepo.LiteDbEntity))
             {
-                var efe = (DbLiteCore.LiteDbEntity) Activator.CreateInstance(allType);
+                var efe = (Mkb.LiteDbRepo.LiteDbEntity) Activator.CreateInstance(allType);
                 efe.Mappings();
             }
         }
