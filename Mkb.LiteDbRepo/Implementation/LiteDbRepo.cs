@@ -8,11 +8,9 @@ namespace Mkb.LiteDbRepo.Implementation
 {
     public class LiteDbRepo<EntityBaseModel> where EntityBaseModel : LiteDbEntity
     {
-        // made the IBaseRepo totaly async as this is 2020 but litedb does not seem to support it so decided to just waste the 
-        // state overhead added by the compiler but keep it standardized the kb's lost is minimal in 2020
 
         protected string DbFilePath;
-
+        
         public LiteDbRepo(string dbFilePath)
         {
             DbFilePath = dbFilePath;
@@ -51,7 +49,7 @@ namespace Mkb.LiteDbRepo.Implementation
         {
             return GetAll(query, f => f);
         }
-        
+
         public IList<Tout> GetAll<T, Tout>(Expression<Func<T, bool>> query,
             Expression<Func<T, Tout>> projection,
             int? skip = null,
@@ -59,7 +57,7 @@ namespace Mkb.LiteDbRepo.Implementation
             params Expression<Func<T, object>>[] includes)
             where T : EntityBaseModel
         {
-           return OpenConnectionAndExecute(f =>
+            return OpenConnectionAndExecute(f =>
                 {
                     var colectionDetails = GetCollection<T>(f).Query().Where(query);
 
