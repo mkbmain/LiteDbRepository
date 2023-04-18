@@ -8,9 +8,8 @@ namespace Mkb.LiteDbRepo.Implementation
 {
     public class LiteDbRepo<EntityBaseModel> where EntityBaseModel : LiteDbEntity
     {
-
         protected string DbFilePath;
-        
+
         public LiteDbRepo(string dbFilePath)
         {
             DbFilePath = dbFilePath;
@@ -19,9 +18,7 @@ namespace Mkb.LiteDbRepo.Implementation
         public virtual T OpenConnectionAndExecute<T>(Func<LiteDatabase, T> action)
         {
             using (var db = new LiteDatabase(DbFilePath))
-            {
                 return action.Invoke(db);
-            }
         }
 
         public virtual ILiteCollection<T> GetCollection<T>(LiteDatabase db)
@@ -31,8 +28,7 @@ namespace Mkb.LiteDbRepo.Implementation
 
         public void Delete<T>(T item) where T : EntityBaseModel
         {
-            var b = item as LiteDbEntity;
-            OpenConnectionAndExecute(f => GetCollection<T>(f).Delete(b.Id));
+            OpenConnectionAndExecute(f => GetCollection<T>(f).Delete(item.Id));
         }
 
         public void Update<T>(T entity) where T : EntityBaseModel

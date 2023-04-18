@@ -7,7 +7,7 @@ namespace LiteDbEntity.Tests.Data
 {
     public static class LiteDbEntityMapping
     {
-        private static bool Done=false;
+        private static bool Done = false;
         public static void Setup()
         {
             if (Done)
